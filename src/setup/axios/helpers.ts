@@ -14,8 +14,6 @@ const TIMEOUT = 30 * 60 * 1000;
 const HEIGHTTIMEOUT = 30 * 60 * 1000;
 
 export const DEPLOY_URL = 'http://localhost:8080/';
-// export const DEPLOY_URL = 'https://server-warehouse.mkb-tech.vn/';
-// export const DEPLOY_DOWNLOAD_URL = 'http://salesappapiuat.tpb.vn/upload/';
 
 let BASE_URL = DEPLOY_URL;
 // export let DOWNLOAD_URL = DEPLOY_DOWNLOAD_URL;
