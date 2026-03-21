@@ -1,46 +1,102 @@
-# Getting Started with Create React App
+# ⚛️ Components Checker Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **React + Vite** — Giao diện Dashboard tra cứu linh kiện điện tử đa nguồn, kết nối trực tiếp với Spring Boot Backend để hiển thị bảng giá, tồn kho và so sánh dữ liệu thời gian thực.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Tính năng chính
 
-### `yarn start`
+| Tính năng | Mô tả |
+|-----------|-------|
+| 🔍 **Smart Search Bar** | Tìm kiếm theo Model linh kiện: ESP32, STM32, 10k resistor... |
+| 📊 **Bảng so sánh đa nguồn** | Hiển thị kết quả từ 5 nhà cung cấp trên cùng một giao diện |
+| ⚡ **Trạng thái Real-time** | Theo dõi tiến trình cào dữ liệu (Loading states) từng nguồn riêng biệt |
+| 🎛️ **Bộ lọc nâng cao** | Lọc theo giá, số lượng tồn kho hoặc Manufacturer |
+| 📱 **Responsive Design** | Tối ưu cho cả máy tính và máy tính bảng (phục vụ anh em kho bãi) |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🏗️ Công nghệ sử dụng
 
-### `yarn test`
+| Layer | Công nghệ |
+|-------|-----------|
+| **Core** | React 18+ (Vite) |
+| **Styling** | Tailwind CSS / SCSS / Ant Design |
+| **State Management** | TanStack Query (React Query) |
+| **HTTP Client** | Axios |
+| **Icons** | Lucide React / FontAwesome |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> ⚠️ **TanStack Query** là thành phần quan trọng nhất — xử lý toàn bộ việc gọi API đa luồng từ nhiều nguồn cùng lúc.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Hướng dẫn cài đặt
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone và cài đặt thư viện
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone <your-repo-url>
+cd toolcheck_fe
+yarn install
+```
 
-### `yarn eject`
+### 2. Cấu hình biến môi trường (`.env`)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Sửa file helper trong đường dẫn @src/setup/axios để chỉnh lại url server - nếu cần
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Chạy môi trường Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+yarn dev
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## 📖 Cấu trúc thư mục
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── api/              # Cấu hình Axios và các hàm gọi Backend
+├── components/       # Các UI Components dùng chung (Button, Input, Table)
+├── hooks/            # Custom hooks (useSearch, useInventory)
+├── pages/            # Các trang chính (Dashboard, Settings)
+├── types/            # TypeScript Interfaces (LinhKienResult, PriceProps)
+└── utils/            # Hàm format tiền tệ, xử lý chuỗi
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 🛠️ Scripts hữu ích
+
+| Lệnh | Mô tả |
+|------|-------|
+| `yarn dev` | Chạy server Development với Hot Reload |
+| `yarn build` | Đóng gói dự án để triển khai lên Production (Nginx/Vercel) |
+
+---
+
+## 💡 Lưu ý cho Developer
+
+### Xử lý Đa luồng trên UI
+
+Vì Backend trả về dữ liệu của 5 nguồn cùng lúc, hãy sử dụng **React Query** để quản lý trạng thái:
+
+- Tránh giao diện bị "đơ" khi một nguồn (như BanLinhKien) phản hồi chậm hơn các nguồn khác.
+- Hiệu ứng Loading nên chia theo từng **Section** của từng nhà cung cấp.
+
+### Format dữ liệu tiền tệ
+
+Dữ liệu giá có đơn vị khác nhau (USD từ LCSC, VND từ TGIC,...). Có thể tự thêm hàm format để quy đổi hoặc hiển thị rõ đơn vị:
+
+```javascript
+// Ví dụ format tiền Việt
+export const formatVND = (price) => {
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+};
+```
+
+---
+
+## 🔗 Liên kết liên quan
+
+- **Backend**: [Spring Boot Components Checker API](http://localhost:8080/)
