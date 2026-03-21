@@ -10,7 +10,7 @@
 |-----------|-------|
 | 🔍 **Smart Search Bar** | Tìm kiếm theo Model linh kiện: ESP32, STM32, 10k resistor... |
 | 📊 **Bảng so sánh đa nguồn** | Hiển thị kết quả từ 5 nhà cung cấp trên cùng một giao diện |
-| ⚡ **Trạng thái Real-time** | Theo dõi tiến trình cào dữ liệu (Loading states) từng nguồn riêng biệt |
+| ⚡ **Trạng thái Real-time** | Theo dõi tiến trình từng nguồn riêng biệt |
 | 🎛️ **Bộ lọc nâng cao** | Lọc theo giá, số lượng tồn kho hoặc Manufacturer |
 | 📱 **Responsive Design** | Tối ưu cho cả máy tính và máy tính bảng (phục vụ anh em kho bãi) |
 
@@ -22,7 +22,6 @@
 |-------|-----------|
 | **Core** | React 18+ (Vite) |
 | **Styling** | Tailwind CSS / SCSS / Ant Design |
-| **State Management** | TanStack Query (React Query) |
 | **HTTP Client** | Axios |
 | **Icons** | Lucide React / FontAwesome |
 
