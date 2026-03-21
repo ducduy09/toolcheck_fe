@@ -51,20 +51,6 @@ yarn dev
 
 ---
 
-## 📖 Cấu trúc thư mục
-
-```
-src/
-├── api/              # Cấu hình Axios và các hàm gọi Backend
-├── components/       # Các UI Components dùng chung (Button, Input, Table)
-├── hooks/            # Custom hooks (useSearch, useInventory)
-├── pages/            # Các trang chính (Dashboard, Settings)
-├── types/            # TypeScript Interfaces (LinhKienResult, PriceProps)
-└── utils/            # Hàm format tiền tệ, xử lý chuỗi
-```
-
----
-
 ## 🛠️ Scripts hữu ích
 
 | Lệnh | Mô tả |
