@@ -4,6 +4,7 @@ export interface ProductProps {
   cxt: LinhKienResult[];
   lkcl: LinhKienResult[];
   blk: LinhKienResult[];
+  mouser: LinhKienResult[];
 }
 
 export interface LinhKienResult {
