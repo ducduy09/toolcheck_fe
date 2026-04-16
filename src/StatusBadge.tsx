@@ -47,7 +47,7 @@ export default function AdvertisementsPage() {
   const [activeSource, setActiveSource] = useState<SourceKey | "all">("all");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<ProductProps>({ lcsc: [], tgic: [], cxt: [], lkcl: [], blk: [], mouser: [] });
+  const [data, setData] = useState<ProductProps>({ lcsc: [], tgic: [], cxt: [], lkcl: [], blk: [], mouser: [], dgkey: [] });
 
   const handleSearchComponent = useCallback(async (query: string) => {
     try {

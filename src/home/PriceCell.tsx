@@ -55,7 +55,7 @@ export const PriceCell = ({ type, prices }: { type: string; prices: PriceProps[]
     <>
       <div className="flex items-center gap-1.5">
         <span className="text-sm font-semibold" style={{ color: "#2a2a1e", fontFamily: "'DM Sans', sans-serif" }}>
-          {type === "lcsc" || type === "mouser" ? base.price.toFixed(3) : base.price.toLocaleString()} {type === "lcsc" || type === "mouser" ? "$" : "đ"}
+          {type === "lcsc" || type === "mouser" || type === "dgkey"  ? base.price.toFixed(3) : base.price.toLocaleString()} {type === "lcsc" || type === "mouser"|| type === "dgkey" ? "$" : "đ"}
         </span>
         {hasLadder && (
           <button
@@ -141,7 +141,7 @@ export const PriceCell = ({ type, prices }: { type: string; prices: PriceProps[]
                 )}
               </span>
               <span className="text-xs font-bold text-right" style={{ color: i === 0 ? "#2a2a1e" : "#5d7a2a", fontFamily: "'DM Sans', sans-serif" }}>
-                {type === "lcsc" || type === "mouser" ? p.price.toFixed(3) : p.price.toLocaleString()} {type === "lcsc" || type === "mouser" ? "$" : "đ"}
+                {type === "lcsc" || type === "mouser" || type === "dgkey" ? p.price.toFixed(3) : p.price.toLocaleString()} {type === "lcsc" || type === "mouser" || type === "dgkey" ? "$" : "đ"}
               </span>
             </div>
           ))}

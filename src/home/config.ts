@@ -8,4 +8,5 @@ export const SOURCE_CONFIG: Record<SourceKey, { label: string; color: string; bg
   lkcl: { label: "LKCL", color: "#065f46", bg: "#d1fae5" },
   blk:  { label: "BLK",  color: "#5f0656", bg: "#f8d1fa" },
   mouser:  { label: "MOUSER",  color: "#5f3606", bg: "#fae7d1" },
+  dgkey:  { label: "DGKEY",  color: "#e7240e", bg: "#fad1d1" },
 };
