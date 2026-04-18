@@ -6,6 +6,7 @@ import { PriceCell } from "./home/PriceCell";
 import { StockBadge } from "./home/StockBadge";
 import { SOURCE_CONFIG } from "./home/config";
 import { SourceBadge } from "./home/SourceBadge";
+import images from "@setup_assets/image/images";
 
 
 export type SourceKey = keyof ProductProps;
@@ -35,6 +36,19 @@ const LinkButton = ({ href, title }: { href?: string; title: string }) => {
         <path d="M5 2H2a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1V8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
         <path d="M8 1h4v4M12 1L6.5 6.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
+    </a>
+  );
+};
+
+const LinkPDF = ({ href, title }: { href?: string; title: string }) => {
+  if (!href) return <span className="w-7 h-7 inline-flex" style={{ color: "#e0ddd6" }}>—</span>;
+  return (
+    <a
+      href={href} target="_blank" rel="noopener noreferrer" title={title}
+      className="inline-flex items-center justify-center w-7 h-7 rounded-lg transition-colors hover:bg-stone-100"
+      style={{ color: "#5d7a2a" }}
+    >
+      <img src={images.pdf_icon} alt={title} className="w-6"/>
     </a>
   );
 };
@@ -289,7 +303,7 @@ export default function AdvertisementsPage() {
  
                       {/* Links */}
                       <div className="flex items-center gap-0.5">
-                        <LinkButton href={item.datasheetUrl || undefined} title="Datasheet PDF" />
+                        <LinkPDF href={item.datasheetUrl || undefined} title="Datasheet PDF" />
                         <LinkButton href={item.productUrl || undefined} title="Trang sản phẩm" />
                       </div>
                     </div>

@@ -16,6 +16,7 @@ import ic_mkb_driver from "@assets/image/ic_mkb_driver.png";
 import ic_warehouse from "@assets/image/ic_warehouse.png";
 import ic_attendance from "@assets/image/ic_attendance.png";
 import ic_make_up from "@assets/image/ic_make_up.png";
+import pdf_icon from "@assets/image/pdf_icon.png"
 
 const images = {
   welcome_start_1,
@@ -34,7 +35,8 @@ const images = {
   ic_mkb_driver,
   ic_warehouse,
   ic_attendance,
-  ic_make_up
+  ic_make_up,
+  pdf_icon
 };
 
 export default images;
